@@ -27,8 +27,16 @@ class AppRegistry {
 
 const Animated = {
   timing: () => ({ start: () => undefined }),
-  Value: () => ({ interpolate: () => false }),
+  Value: () => ({
+    interpolate: () => false,
+    addListener: jest.fn(),
+    removeListener: jest.fn(),
+  }),
   View: View
+};
+
+const PanResponder = {
+  create: jest.fn(() => ({})),
 };
 
 const I18nManager = {
@@ -61,5 +69,6 @@ ReactNative.AppRegistry = AppRegistry;
 ReactNative.Animated = Animated;
 ReactNative.I18nManager = I18nManager;
 ReactNative.Platform = Platform;
+ReactNative.PanResponder = PanResponder;
 
 module.exports = ReactNative;
