@@ -14,7 +14,7 @@ Features:
 * Different lifecycle hooks
 * RTL layout support
 
-| Context Menu, Slide-in Menu | Popover |
+| Context Menu, Slide-in Menu, Dialog | Popover |
 |---|---|
 |![Popup menu demo](./android.demo.gif)|![Popup menu demo](./android.demo-popover.gif)|
 
