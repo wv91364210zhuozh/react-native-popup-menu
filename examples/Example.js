@@ -54,10 +54,15 @@ export default class Example extends Component {
 
   render() {
     return (
-      <MenuProvider style={{flex: 1}} customStyles={{ backdrop: styles.backdrop }}>
+      <MenuProvider style={{flex: 1}}>
         <View style={styles.container}>
           <View style={styles.topbar}>
-            <Menu name="numbers" renderer={SlideInMenu} onSelect={value => this.selectNumber(value)}>
+            <Menu
+              name="numbers"
+              renderer={SlideInMenu}
+              rendererProps={{ initialHeight: 210 }}
+              onSelect={value => this.selectNumber(value)}
+            >
               <MenuTrigger style={styles.trigger}>
                 <Text style={[styles.text, styles.triggerText]}>Slide-in</Text>
               </MenuTrigger>
@@ -67,7 +72,11 @@ export default class Example extends Component {
                 <MenuOption value={3} text='Option three' />
                 <MenuOption value={4} text='Option four' />
                 { null /* conditional not rendered option */ }
+                <View style={styles.divider}/>
                 <MenuOption value={5} text='Option five' />
+                <MenuOption value={6} text='Option six' />
+                <MenuOption value={7} text='Option seven' />
+                <MenuOption value={8} text='Option eight' />
               </MenuOptions>
             </Menu>
             <Menu name="modal" renderer={Dialog} onSelect={value => this.selectNumber(value)}>
@@ -170,8 +179,4 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 18,
   },
-  backdrop: {
-    backgroundColor: 'black',
-    opacity: 0.3,
-  }
 });
